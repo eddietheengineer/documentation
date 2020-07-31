@@ -45,4 +45,35 @@ For this study I wanted to capture a few points between the min and max values w
 
 ![x_belt_tension](Images/x_belt_tension.png)
 
+
+
+This is a very clear chart--increasing tension (A is lowest tension, G is highest tension) increases the frequency of the resonant frequency and also increases the value on the Y axis. In this chart, the Y axis is 1/(2*zeta)^2, where zeta is the damping ratio. Damping ratio gives us insight into how long after a sharp change in direction the toolhead will continue oscillating. The chart below ([reference](https://en.wikipedia.org/wiki/File:2nd_Order_Damping_Ratios.svg)) shows a few different damping ratios and how it affects the oscillation pattern: 
+
+![damping_ratio_overview](Images/damping_ratio_overview.png)
+
+A damping ratio of 0 means that the oscillation will continue indefinitely--if this was the case, the ringing pattern would exist on nearly all print surfaces. Damping ratios between 0 and 1 are "under damped"--the system will "overshoot" the target value/position and will oscillate for a period of time before the oscillations die out. A damping ratio of 1 is said to be "critically damped"--it approaches the target value quickly, without oscillating. Finally, a damping ratio greater than 1 is "over damped"--the system does not overshoot, but is sluggish and does not reach the target value quickly.
+
+3d printers must respond quickly to changes in direction and have low resistance to movement--this means most of the typical damping that may exist in other systems isn't present except for (ideally) minor friction losses. In order to reduce resonance affects, we can reduce the impulse (acceleration) that drives the oscillation, but that's often not ideal as print speed is sacrificed. 
+
+Moving back to the data, if we take the peaks from each of the belt tensions and solve for the damping ratio, we get this plot:
+
+![x_damping_ratio](Images/x_damping_ratio.png)
+
+This means that as the belt tension is increased, the damping ratio decreases--oscillations will continue longer. If we revisit the guitar string example, this intuitively makes sense--if a guitar string is not tensioned enough, it will flop around and the resonances will quickly die. As tensions are increased, vibrations last longer. While a reduced damping ratio seems intuitively worse, a well defined (higher) resonant frequency may respond better to input shaping?
+
+Let's revisit Y resonance. In a CoreXY printer, the mass is significantly higher when moving in the Y direction because the toolhead (X mass) plus the entire X axis structure (in the case of my printer, 2020 aluminum extrusion, MGN rails, etc) must move. 
+
+The resonant/natural frequency can be calculated by the following formula:
+
+Natural Frequency = sqrt(k/m) = sqrt(spring constant/mass)
+
+In the case of a CoreXY printer, the "k" term will be the same for both X and Y motion. If we estimate the Y moving mass to be twice the X moving mass, we would expect the natural frequency to be approximately 
+
+​	y_natural_frequency/x_natural_frequency =sqrt(1/2) = 0.707
+
+Comparing the resonant frequency peaks of the "E" belt tension in both the X chart above and Y chart below, we get close to that value:
+
+28Hz / 43Hz = 0.651
+
 ![y_belt_tension](Images/y_belt_tension.png)
+
