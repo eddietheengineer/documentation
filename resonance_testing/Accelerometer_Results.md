@@ -1,13 +1,13 @@
 Klipper [input_shaper] results
 ====================
 
-#### Intro
+### Intro
 
 Hello everyone!
 
 This is a follow up video to the Klipper [input_shaper] overview, I have gathered some more data and would like to share it with you! I ran across Dmitri's accelerometer implementation, which allows you to directly measure resonances (in all axes) instead of using a test print by attaching a small module to your toolhead. This gives you a lot of rich information about your 3d printer and can help you fine tune it.
 
-#### Test Setup
+### Test Setup
 
 First of all, 90% of the results I have here you can easily replicate yourself by purchasing an ADXL345 accelerometer and following Dmitri's guide [here](https://github.com/KevinOConnor/klipper/blob/5cb576c7ba4040df1acaea1985e24db8a8febbed/docs/Measuring_Resonances.md).
 
@@ -15,7 +15,7 @@ It was surprisingly cheap (~$6) and easy to set up (<1 hour including making the
 
 <img src="Images/toolhead_accelerometer.jpg" alt="toolhead_accelerometer" style="zoom: 25%;" />
 
-#### Theory
+### Theory
 
 So what exactly are we trying to achieve here? That's a great question! At a basic level, by using an accelerometer on the toolhead we can find the frequencies that the printer resonates at during various move operations. These values will likely be very similar to the printed ringing tuning test, but an accelerometer allows us to get very accurate data quickly so we can iterate on tuning various parameters. It also allows us to understand if there are more complex resonances occurring between different axes or even two or more resonances.
 
@@ -33,7 +33,7 @@ In this case, we have two very clear peaks at 14.5Hz and 23Hz. This isn't ideal 
 
 
 
-#### Belt Tension Study
+### Belt Tension Study
 
 Let's look further into the cause of the low frequencies specifically on the Y axis in that last plot. Depending on your printer there may be a lot of different causes for resonant frequencies, but frequencies related to belts are a pretty common component across almost all printers. 
 
