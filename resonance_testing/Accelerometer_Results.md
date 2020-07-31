@@ -77,3 +77,9 @@ Comparing the resonant frequency peaks of the "E" belt tension in both the X cha
 
 ![y_belt_tension](Images/y_belt_tension.png)
 
+![a_initial_resonance](Images/a_initial_resonance.png)
+
+
+
+![image-20200731011601773](Images/image-20200731011601773.png)
+
