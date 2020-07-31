@@ -15,9 +15,7 @@ First of all, 90% of the results I have here you can easily replicate yourself b
 
 It was surprisingly cheap (~$6) and easy to set up (<1 hour including making the wire harness). It's important to get a secure mount to your toolhead so the accelerometer properly captures the resonance of the toolhead--in my case I was able to secure it to the side of my toolhead. Note that the output of the accelerometer is relative to its internal coordinate system--in this mounting scenario, the accelerometer's X and Z axes are swapped compared to the printer's axes. If you mount the accelerometer differently than this, your results may be unique.
 
-<img src="C:\Users\Node\AppData\Roaming\Typora\typora-user-images\image-20200730225426864.png" alt="image-20200730225426864" style="zoom: 25%;" />[]()
-
-
+![toolhead_accelerometer](Images/toolhead_accelerometer.jpg)
 
 #### Theory
 
