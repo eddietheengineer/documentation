@@ -11,7 +11,7 @@ This is a follow up video to the Klipper [input_shaper] overview, I have gathere
 
 First of all, 90% of the results I have here you can easily replicate yourself by purchasing an ADXL345 accelerometer and following Dmitri's guide [here](https://github.com/KevinOConnor/klipper/blob/5cb576c7ba4040df1acaea1985e24db8a8febbed/docs/Measuring_Resonances.md).
 
-It was surprisingly cheap (~$6) and easy to set up (<1 hour including making the wire harness). It's important to get a secure mount to your toolhead so the accelerometer properly captures the resonance of the toolhead--in my case I was able to secure it to the side of my toolhead. Note that the output of the accelerometer is relative to its internal coordinate system--in this mounting scenario, the accelerometer's X and Z axes are swapped compared to the printer's axes. If you mount the accelerometer differently than this, your results may be unique.
+It was surprisingly cheap ([~$6](https://amzn.to/33aEHnz)) and easy to set up (<1 hour including making the wire harness). It's important to get a secure mount to your toolhead so the accelerometer properly captures the resonance of the toolhead--in my case I was able to secure it to the side of my toolhead. Note that the output of the accelerometer is relative to its internal coordinate system--in this mounting scenario, the accelerometer's X and Z axes are swapped compared to the printer's axes. If you mount the accelerometer differently than this, your results may be unique.
 
 <img src="Images/toolhead_accelerometer.jpg" alt="toolhead_accelerometer" style="zoom: 25%;" />
 
