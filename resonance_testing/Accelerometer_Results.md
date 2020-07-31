@@ -1,4 +1,4 @@
-Klipper [input_shaper] results
+Klipper Accelerometer Testing
 ====================
 
 ### Intro
