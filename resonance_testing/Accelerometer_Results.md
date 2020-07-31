@@ -15,7 +15,7 @@ First of all, 90% of the results I have here you can easily replicate yourself b
 
 It was surprisingly cheap (~$6) and easy to set up (<1 hour including making the wire harness). It's important to get a secure mount to your toolhead so the accelerometer properly captures the resonance of the toolhead--in my case I was able to secure it to the side of my toolhead. Note that the output of the accelerometer is relative to its internal coordinate system--in this mounting scenario, the accelerometer's X and Z axes are swapped compared to the printer's axes. If you mount the accelerometer differently than this, your results may be unique.
 
-![toolhead_accelerometer](Images/toolhead_accelerometer.jpg)
+<img src="Images/toolhead_accelerometer.jpg" alt="toolhead_accelerometer" style="zoom: 25%;" />
 
 #### Theory
 
@@ -25,13 +25,11 @@ To show this, let's look at our first test result, which checks for X axis reson
 
 In the graph below, we can see that the X axis on my CoreXY printer has a very clearly defined single resonant frequency which peaks at 33Hz. The other two axes (Y and Z) are largely undisturbed by the X axis movement. This is a fairly simple case!
 
-![x_initial_resonance.png](C:\Users\Node\Documents\GitHub\jdlongenecker\documentation\Images\x_initial_resonance.png)
-
-
+![x_initial_resonance](Images/x_initial_resonance.png)
 
 Next, let's look at the Y axis:
 
-![y_initial_resonance.png](C:\Users\Node\Documents\GitHub\jdlongenecker\documentation\Images\y_initial_resonance.png)
+![y_initial_resonance](Images/y_initial_resonance.png)
 
 In this case, we have two very clear peaks at 14.5Hz and 23Hz. This isn't ideal for two reasons--one, because the frequencies are so low, and because there are two. This may be able to be smoothed out using the 2hump_ei version of [input_shaper] centered between the two resonant frequencies. Ideally though, the printer would be changed to increase these frequencies--we'll touch on that in a bit. Note also here that the X and Z components are pretty isolated, which is good! This is definitely not always the case depending on what printer you have--sometimes there can be significant other components that could create extra complexity in your prints.
 
@@ -47,6 +45,6 @@ Printer belts are very similar to this. If you over tighten a typical GT2 belt, 
 
 For this study I wanted to capture a few points between the min and max values we just discussed, so I started with a low belt tension on both belts on my CoreXY printer and ran a series of tests similar to the previous ones, but at increasing belt tension. Each step stretched the belt by 0.5mm. 
 
-![x_belt_tension.png](C:\Users\Node\Documents\GitHub\jdlongenecker\documentation\Images\x_belt_tension.png)
+![x_belt_tension](Images/x_belt_tension.png)
 
-![y_belt_tension.png](C:\Users\Node\Documents\GitHub\jdlongenecker\documentation\Images\y_belt_tension.png)
+![y_belt_tension](Images/y_belt_tension.png)
