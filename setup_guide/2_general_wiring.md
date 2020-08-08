@@ -52,9 +52,11 @@ Dupont:
 
 JST-XH Connector:
 
+<p align="center">
+
 <img src="images/jst_xh_connector.jpg" alt="jst_xh_connector" width="400"  />
 
-
+</p>
 
 ## Stepper Motor Wiring
 
@@ -70,7 +72,7 @@ While both of these configurations will work fine in an ideal world, NC configur
 
 Wiring mechanical switches for NC operation is easy, as they generally have three pins exposed. With a multimeter, probe each combination of the three pins until you find a pair that has continuity (0 ohm resistance) when the switch is not triggered, but does not have continuity (infinite resistance) when the switch is triggered. The outer two pins are often the NC pins, but verify prior to installation.
 
-<img src="images/endstop_wiring.png" alt="endstop_wiring" width="400" />
+<img src="images/endstop_wiring.png" alt="endstop_wiring" width="" />
 
 
 
