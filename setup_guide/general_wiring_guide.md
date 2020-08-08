@@ -1,18 +1,16 @@
-## General Wiring Guide
+# General Wiring Guide
 
 This guide gives a high level overview of a few of the most common questions people have when wiring their printer. These notes should apply to all Voron printer builds, regardless of controller board used.
 
-**Safety Note**
+### Safety Note
 
 When wiring up your printer electronics, you will be working with high voltage wiring. Always double check to make sure that the printer is unplugged and any capacitors in your power supplies have discharged before touching any wire or terminal that may be live. 
 
-**Damage Risk**
+### Damage Risk
 
 **Never plug or unplug any device (high or low voltage) while the the printer is powered.** In addition to being a safety hazard, you will likely damage electronic components. Of particular note are stepper drivers which can easily be damaged by connecting or disconnecting stepper motors or drivers while powered.
 
-
-
-**DC Power Supply Wiring**
+### DC Power Supply Wiring
 
 The latest generation of Voron printers spec the use of two or more independent DC power supplies
 
@@ -34,7 +32,7 @@ It is possible to use your MCU to control fans, LEDs, and other devices even whe
 
 This means that if you wire the +V side of your fan to an external power supply (5V for a 5V fan, 12V to a 12V fan, etc) and connect the -V side of your fan to a (-) pin on the SKR 1.3, you can switch the fan on and off. As mentioned above, this *only* will work if you tie the DC 0V of both power supplies together. Note, in the diagram below, only DC wires are shown. Red represents +V, and Black represents 0V. **SKR 1.3 Board Configuration**
 
-**Jumper Configuration**
+### Jumper Configuration
 
 For both SKR 1.3 boards with TMC 2208 or TMC 2209 drivers:
 
@@ -63,7 +61,7 @@ For wiring the stepper motors, keep the same wire color sequence that your stepp
 
 
 
-**Inductive Probe Wiring**
+### Inductive Probe Wiring
 
 The PL-08N inductive probe that is used for Z Tilt Adjust (V1) or Quad Gantry Leveling (V2) needs to be powered with 12-24V, not the standard 5V that is used for typical end stop switches. This is critical because if it is powered with 5V its sense distance will be so low that the nozzle will crash in to the build surface.  
 
@@ -71,7 +69,7 @@ The PL-08N inductive probe that is used for Z Tilt Adjust (V1) or Quad Gantry Le
 
 The issue with this is that the output signal from the sensor is approximately the same voltage as the sensor is powered with. This means if you power the sensor with 24V, it will send 24V to a pin on the micro that is supposed to never have more than 5V applied to it. This is where the BAT85 diode comes in to play. It is oriented so that when the probe signal wire is HIGH (12-24V), no current will flow to the SKR input pin, so the SKR pin will read HIGH voltage due to the internal pull-up resistor. If the probe signal is LOW (0V), current will flow from the SKR board through the diode, through the Probe to GND, which will pull the SKR pin LOW. Below is a circuit diagram explaining this: 
 
-**Endstop Wiring**
+### Endstop Wiring
 
 There are two ways of wiring your endstops, one is NC (normally closed) and the other is NO (normally open). For normally closed configurations, the endstop switch allows current to flow through it when it is not triggered. For normally open configurations, the end stop switch only allows current to flow through it when it is triggered. 
 
