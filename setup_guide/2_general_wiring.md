@@ -48,11 +48,11 @@ Depending on your control board, you may need to use Dupont, JST-XH, and/or MX c
 
 Dupont:
 
-<img src="images/dupont_connector.jpg" alt="dupont_connector" style="zoom:25%;" />
+<img src="images/dupont_connector.jpg" width="400" alt="dupont_connector"  />
 
 JST-XH Connector:
 
-<img src="images/jst_xh_connector.jpg" alt="jst_xh_connector" style="zoom:25%;" />
+<img src="images/jst_xh_connector.jpg" alt="jst_xh_connector" width="400"  />
 
 
 
@@ -70,7 +70,7 @@ While both of these configurations will work fine in an ideal world, NC configur
 
 Wiring mechanical switches for NC operation is easy, as they generally have three pins exposed. With a multimeter, probe each combination of the three pins until you find a pair that has continuity (0 ohm resistance) when the switch is not triggered, but does not have continuity (infinite resistance) when the switch is triggered. The outer two pins are often the NC pins, but verify prior to installation.
 
-<img src="images/endstop_wiring.png" alt="endstop_wiring" style="zoom:50%;" />
+<img src="images/endstop_wiring.png" alt="endstop_wiring" width="400" />
 
 
 
