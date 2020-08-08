@@ -10,6 +10,16 @@ When wiring up your printer electronics, **<u>you will be working with high volt
 
 <u>**Never plug or unplug any device (high or low voltage) while the the printer is powered.**</u> In addition to being a safety hazard, you will may damage electronic components. Of particular note are stepper drivers which can easily be damaged by connecting or disconnecting stepper motors or drivers while powered.
 
+## AC Mains Inlet Wiring
+
+It is critical to properly wire your AC inlet plug to the rest of your printer. Use the proper spade terminal connections and wire crimpers. **Do not** solder wires to the spade terminals or tin the tips of the wires that are inserted in to screw terminals. If the connection has high current and/or high resistance flowing through it, the wire may heat up and cause the solder to flow, which will create an insecure connection. 
+
+## AC Heater Wiring
+
+Installing and wiring the bed heater is particularly important as it has the potential to cause significant harm if it malfunctions. For this reason, Voron printers are designed to use a single use thermal cutoff as a secondary safety device in case of microcontroller, SSR (Solid State Relay), or human failure. Wire the SSR, thermal cutoff, and bed heater in series as shown in the image below. If your country has a defined "Hot" and Neutral, it is best practice to connect the "Hot" side through the SSR and thermal fuse so that the bed heater is not energized.
+
+![AC_bed_heater_wiring](images/AC_bed_heater_wiring.png)
+
 ## DC Power Supply Wiring
 
 The latest generation of Voron printers spec the use of two or more independent DC power supplies
@@ -88,4 +98,4 @@ The issue with this is that the output signal from the sensor is approximately t
 
 ![inductive_probe_circuit](images/inductive_probe_circuit.png)
 
-For the inductive probe, you will need to make sure that you purchase a NC probe, not a NO probe. You cannot change the configuration of the probe—it comes fixed from the factory in a specific configuration. If you happen to receive a NO probe it will still work but you may risk crashing the nozzle in to the bed if a wire breaks. 
+For the inductive probe, you will need to make sure that you purchase a NC probe, not a NO probe. You cannot change the configuration of the probe—it comes fixed from the factory in a specific configuration. If you happen to receive a NO probe it will still work but you may risk crashing the nozzle in to the bed if a wire breaks.
