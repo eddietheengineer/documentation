@@ -4,11 +4,11 @@ This guide gives a high level overview of a few of the most common questions peo
 
 ## Safety Note
 
-When wiring up your printer electronics, **<u>you will be working with high voltage wiring.</u>** Always double check to make sure that the printer is unplugged and any capacitors in your power supplies have discharged before touching any wire or terminal that may be live. 
+When wiring up your printer electronics, **<u>you will be working with high voltage wiring.</u>** Always double check to make sure that the printer is unplugged and wait for a minute to make sure that any capacitors in your power supplies have discharged before touching any wire or terminal that may be live. 
 
 ## Damage Risk
 
-<u>**Never plug or unplug any device (high or low voltage) while the the printer is powered.**</u> In addition to being a safety hazard, you will likely damage electronic components. Of particular note are stepper drivers which can easily be damaged by connecting or disconnecting stepper motors or drivers while powered.
+<u>**Never plug or unplug any device (high or low voltage) while the the printer is powered.**</u> In addition to being a safety hazard, you will may damage electronic components. Of particular note are stepper drivers which can easily be damaged by connecting or disconnecting stepper motors or drivers while powered.
 
 ## DC Power Supply Wiring
 
@@ -32,15 +32,15 @@ This means that if you wire the +V side of your fan to an external power supply 
 
 If you have low power accessories (fans, small LEDs, etc) that operate off of 5V or 12V, you can use a buck converter to drop 24V to the device voltage. Make sure that the buck converter you purchase can supply the current that your accessory requires.
 
-**<u>*Do not power your device with the buck converter until verifying the output voltage.*</u>** Adjustable buck converters typically arrive from the supplier with the buck outputting the maximum voltage available. This will damage your 5V/12V accessory. To prevent damage to your accessory, connect the buck converter to the 24V power supply first, with nothing connected to the output. Once the buck converter is powered, measure the buck converter DC output with a multimeter. If the value is not your target value and the buck converter is adjustable, turn the potentiometer on the buck converter with a flat screwdriver until the output voltage is your desired value. Finally, connect the output of your buck converter to your accessory as shown below:
+**<u>*Do not power your device with the buck converter until verifying the output voltage.*</u>** Adjustable buck converters typically arrive from the supplier with the buck converter adjusted to the maximum voltage setting. This will damage your 5V/12V accessory. To prevent damage to your accessory, connect the buck converter to the 24V power supply first with nothing connected to the output. Once the buck converter is powered, measure the buck converter DC output with a multimeter. If the value is not your target value and the buck converter is adjustable, carefully turn the potentiometer on the buck converter with a screwdriver until the output voltage is your desired value. Finally, connect the output of your buck converter to your accessory as shown below:
 
 ![buck_converter_wiring](images/buck_converter_wiring.png)
 
 ## Stepper Driver Installation
 
-- **Warning!** Always be sure to orient drivers correctly when installing. If you plug the drivers in backwards, they may permanently be damaged. Enable (EN) and Direction (DIR) pins *typically* are on the side opposite the stepper motor plugs, but check your controller board for specifics. If you have TMC 2209 drivers, you may notice there are additional pins on one end of the board--these will be properly 
+- **Warning!** Always be sure to orient drivers correctly when installing. If you plug the drivers in backwards, they may permanently be damaged. Enable (EN) and Direction (DIR) pins *typically* are on the side opposite the stepper motor plugs, but check your controller board for specifics. If you have TMC 2209 drivers, you may notice there are additional pins on one end of the board--these may have corresponding plugs in the controller board which may help you align the drivers.
 - Place included heatsink on top of stepper driver copper pad and provide adequate cooling during operation or you may experience layer shifts or other undesirable behaviors. This is even more important with TMC 2208s as they have higher RDSon and generate more heat for the same stepper motor current.
-- **Note:** if you do not have BigTreeTech TMC2209s but are using a BigTreeTech control board, the pinout may be different. See link [here](https://www.anet3d-forum.de/viewtopic.php?f=82&t=4776) for more information on setting up these drivers.
+- **Note:** if you do not have BigTreeTech TMC2209s and are using a BigTreeTech control board, the pinout may be different. See link [here](https://www.anet3d-forum.de/viewtopic.php?f=82&t=4776) for more information on setting up these drivers.
 
 ## Wire Terminals
 
@@ -48,11 +48,11 @@ Depending on your control board, you may need to use Dupont, JST-XH, and/or MX c
 
 Dupont:
 
-![dupont_connector](images/dupont_connector.jpg)
+<img src="images/dupont_connector.jpg" alt="dupont_connector" style="zoom:25%;" />
 
 JST-XH Connector:
 
-![jst_xh_connector](images/jst_xh_connector.jpg)
+<img src="images/jst_xh_connector.jpg" alt="jst_xh_connector" style="zoom:25%;" />
 
 
 
