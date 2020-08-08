@@ -1,4 +1,4 @@
-# Appendix 3 - Octoprint Plugins
+# Appendix - Octoprint Plugins
 
 - ​	OctoKlipper
 - ​	Themeify

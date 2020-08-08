@@ -1,16 +1,10 @@
-**Appendix 4 - SKR Bootloader Update**
+# Appendix - SKR Betterbootloader Modification
 
 Source: https://github.com/Arksine/LPC17xx-DFU-Bootloader/releases
 
-
-
-The current SKR 1.3 boards ship with the Marlin bootloader which does not allow Klipper to update the firmware via USB. This means that when you update Klipper, if the MCU firmware needs to be updated, you would typically need to create the new firmware image, manually transfer it to the SKR microSD card on both SKR boards, and power cycle. This is not ideal because it’s difficult to access the SKR boards below your printer.
-
-
+The current SKR 1.3/1.4 boards ship with the Marlin bootloader which does not allow Klipper to update the firmware via USB. This means that when you update Klipper, if the MCU firmware needs to be updated, you would typically need to create the new firmware image, manually transfer it to the SKR microSD card on both SKR boards, and power cycle. This is not ideal because it’s difficult to access the SKR boards below your printer.
 
 Fortunately there is a great way to fix this! You can now update your SKR 1.3 boot loader to the smoothieware bootloader, which allows you to update the MCU firmware at any time via USB. To do this, perform the following steps:
-
-
 
 1. Verify that your SKR jumper settings are correct as defined in SKR 1.3 Board Configuration section. Specifically make sure that the jumper is connected between "INT" and "5V" on both of your SKR boards. 
 2. Download the file “betterBootleader.bin” file to your computer, and rename it “firmware.bin”
