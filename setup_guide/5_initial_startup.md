@@ -6,13 +6,19 @@ https://github.com/KevinOConnor/klipper/blob/master/docs/Config_checks.md
 
 ## Endstop Check
 
-Make sure that none of the X, Y, or Z Endstops are being pressed, and then send a 	QUERY_ENDSTOPS command via the Octoprint command line. The terminal window should respond with the following:
+Make sure that none of the X, Y, or Z Endstops are being pressed, and then send the following command via the Octoprint command line:
 
-Send: QUERY_ENDSTOPS
+​	```QUERY_ENDSTOPS```
 
-Recv: x:open y:open z:open
+ The terminal window should respond with the following:
 
-If any of them say “triggered” instead of “open”, double check to make sure none of them are pressed. Next, manually press the X endstop, send the QUERY_ENDSTOPS command again, and make sure that the X endstop says “triggered” and the Y and Z endstops stay open. Repeat with the Y and Z endstops. 
+​	```Recv: x:open y:open z:open```
+
+If any of them say “triggered” instead of “open”, double check to make sure none of them are pressed. Next, manually press the X endstop, send the QUERY_ENDSTOPS command again, and make sure that the X endstop says “triggered” and the Y and Z endstops stay open:
+
+​	```Recv: x:TRIGGERED y:open z:open```
+
+Repeat the test with the Y and Z endstops. 
 
 You may find that one of your Endstops has inverted logic (it displays “open” when it is pressed, and “triggered” when it is not). In this case, go to your printer’s config file and add or remove the ! In front of the pin. For instance, if your X endstop was inverted, you would add a ! In front of your pin number as follows:
 
@@ -22,9 +28,9 @@ endstop_pin: P1.28 —> !P1.28
 
 To verify that each stepper motor is operating correctly, send the following command:
 
-​	STEPPER_BUZZ STEPPER=stepper_x
+​	```STEPPER_BUZZ STEPPER=stepper_x```
 
-Run this again for each of the motors (stepper_y, stepper_z, stepper_z1, stepper_z2, and stepper_z3). Z motors should go UP first then down. If the stepper motors do not move, check wiring for loose connectors.
+Run this again for each of the motors (stepper_y, stepper_z, etc). Z motors should go UP first then down. If the stepper motors do not move, check wiring for loose connectors.
 
 ## XY Homing Check
 
@@ -34,21 +40,36 @@ The alternative to this is to have your laptop right next to the printer with �
 
 The final “nuclear” option is to power off the entire printer if something goes wrong. This is not ideal because doing this may corrupt the files on the SD card and you would have to reinstall everything from scratch. 
 
-Now that you know how to stop the printer if something goes wrong, send a G28 X Y command to your printer. This will only home X and Y, not Z. The tool head should move to the right until it hits the X endstop, and then move to the back of the printer until it hits the Y endstop. In a CoreXY configuration, each motor has to move in order to get the toolhead to go in only an X or Y direction (think of an Etch a Sketch). 
+Now that you know how to stop the printer if something goes wrong, send the XY homing command to your printer:
 
-If the toolhead does not go in the correct direction, refer to the table below to figure out how to correct it. If you need to invert one of the motors, invert the direction pin (put a ! before the pin). If the motors are going in the directions that match the lower row, swap your X and Y connectors.
+​	```G28 X0 Y0```
 
-[stepper x] => Motor B
+This will only home X and Y, not Z. The tool head should:
 
-[stepper y] => Motor A 
+1. Move to the right until it triggers the X endstop
+2. Retract from the X endstop and move right again until it triggers the X endstop a second time
+3. Move to the back of the printer until it triggers the Y endstop
+4. Retract from the Y endstop and move backwards again until it triggers the Y endstop a second time
+
+If the toolhead does not go in the correct direction, refer to the table below to figure out how to correct it. 
+
+![corexy_motor_setup](images/corexy_motor_setup.png)
+
+If you need to invert one of the motors, invert the direction pin (add or remove a ! before the pin). If the motors are going in the directions that match the lower row, swap your A and B motor connectors. For reference, motor B should be connected to the [stepper_x] driver, and motor A should be connected to the [stepper_y] driver.
 
 ## Define (0,0) Point
 
-Home XY
+Once you have completed the previous step, home X and Y again:
 
-Move the nozzle to the front left corner of the bed. If you can’t reach it, move the bed on the extrusions, but make sure whatever bed position you end up with you can still reach the Z switch. Once you can get the nozzle close to the front left corner of the bed, send an M114 command. If X and Y are not ~0-5mm, update “position_max” and “position_endstop” for both [stepper_x] and [stepper_y]:
+​	```G28 X0 Y0``` 
 
-​	For X: New = Current – Get Position X Result
+Use Octoprint to move the nozzle to the front left corner of the bed. If the printer won't reach it, you can adjust the bed on the extrusions. Make sure whatever bed position you end up with you can still reach the Z switch if applicable. Once you can get the nozzle close to the front left corner of the bed, send an M114 command, which will return the following:
+
+​	```X: 0.5mm, Y: 1mm```
+
+If X and Y are not ~0-5mm, update “position_max” and “position_endstop” for both [stepper_x] and [stepper_y]:
+
+​	For X: new = Current – Get Position X Result
 
 ​	For Y: New = Current – Get Position Y Result
 
@@ -62,7 +83,11 @@ Move the nozzle using Octoprint until it is directly above the Z Endstop switch.
 
 ## Probe Check
 
-With the probe in the center of the bed, reconfirm that the probe is working correctly. When it is far from the bed, QUERY_PROBE should return “open”. When a metal object is close to the probe, QUERY_PROBE should return “triggered”. Slowly reduce your Z height and run QUERY_PROBE each time until QUERY_PROBE returns “triggered”—make sure the nozzle is not touching the print surface (and has clearance). If the signal is inverted, add a “!” In front of the pin definition (ie, pin: !z:P1.24). 
+With the probe in the center of the bed, reconfirm that the probe is working correctly. When it is far from the bed, send the following command:
+
+```QUERY_PROBE ```
+
+This should return “open”. When a metal object is close to the probe, QUERY_PROBE should return “triggered”. Slowly reduce your Z height and run QUERY_PROBE each time until QUERY_PROBE returns “triggered”—make sure the nozzle is not touching the print surface (and has clearance). If the signal is inverted, add a “!” In front of the pin definition (ie, pin: !z:P1.24). 
 
 ## Probe Accuracy
 
@@ -70,6 +95,7 @@ With the bed and hotend cold (for now), move the probe to the center of the bed 
 
 Example of unstable PROBE_ACCURACY (trending downward during warm up). 
 
+```
 Send: PROBE_ACCURACY
 
 Recv: // PROBE_ACCURACY at X:125.000 Y:125.000 Z:7.173 (samples=10 retract=2.000 speed=2.0
@@ -97,6 +123,9 @@ Recv: // probe at 125.000,125.000 is z=4.937500
 Recv: // probe at 125.000,125.000 is z=4.932500
 
 Recv: // probe accuracy results: maximum 4.975000, minimum 4.932500, range 0.042500, average 4.949000, median 4.948750, standard deviation 0.011948
+```
+
+
 
 ## Quad Gantry Leveling (or Z Tilt)
 
