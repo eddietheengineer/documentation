@@ -2,11 +2,11 @@
 
 This guide gives a high level overview of a few of the most common questions people have when wiring their printer. These notes should apply to all Voron printer builds, regardless of controller board used.
 
-### Safety Note
+## Safety Note
 
 When wiring up your printer electronics, you will be working with high voltage wiring. Always double check to make sure that the printer is unplugged and any capacitors in your power supplies have discharged before touching any wire or terminal that may be live. 
 
-### Damage Risk
+## Damage Risk
 
 **Never plug or unplug any device (high or low voltage) while the the printer is powered.** In addition to being a safety hazard, you will likely damage electronic components. Of particular note are stepper drivers which can easily be damaged by connecting or disconnecting stepper motors or drivers while powered.
 
