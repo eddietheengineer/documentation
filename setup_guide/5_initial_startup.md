@@ -1,4 +1,4 @@
-**Klipper Configuration Checks**
+# Initial Startup - Configuration Checks
 
 The moment you’ve been waiting for—your printer finally coming to life! Klipper has a very helpful configuration check guide that will help make sure that everything is operating properly. Please follow the steps detailed at the URL below:
 
