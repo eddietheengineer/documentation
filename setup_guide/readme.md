@@ -12,8 +12,9 @@ Congratulations on making it this far, and I hope this document will help you!
 
 1. [Introduction](https://github.com/jdlongenecker/documentation/tree/master/setup_guide#introduction)
 2. [General Wiring Information](https://github.com/jdlongenecker/documentation/blob/master/setup_guide/2_general_wiring.md#general-wiring-guide)
-3. Controller/Printer Specific Content
+3. [Controller/Printer Specific Content](Controller/Printer Specific Content)
 4. [Klipper Installation](https://github.com/jdlongenecker/documentation/blob/master/setup_guide/4_klipper_installation.md)
 5. Initial Startup
 6. First Print
 7. Advanced Tuning
+
