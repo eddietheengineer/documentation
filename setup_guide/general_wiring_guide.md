@@ -18,25 +18,27 @@ The latest generation of Voron printers spec the use of two or more independent 
 - 5V DC Power Supply for Raspberry Pi 
 - 12V (Optional) for any other devices (Fans, LEDs, etc)
 
-
-
 **Important!** Connect the DC 0V output (labeled -V) of all of your DC power supplies together so they have the same reference. If you do not do this, you may have issues (devices may not turn on when they are supposed to, or they may be damaged due to exceeding voltage limits).
 
-
-
-**Using non-24V fans for 24V powered MCU**
+### Using 12V fans or LEDs with 24V powered MCU
 
 It is possible to use your MCU to control fans, LEDs, and other devices even when those devices do not use 24V. Most MCUs (RAMPS, SKR 1.3/1.4, etc) use the (-) pin to control if a device is switched on or off.
 
+This means that if you wire the +V side of your fan to an external power supply (5V for a 5V fan, 12V to a 12V fan, etc) and connect the -V side of your fan to a (-) pin on the SKR 1.3, you can switch the fan on and off. As mentioned above, this *only* will work if you tie the DC 0V of both power supplies together. Note, in the diagram below, only DC wires are shown. Red represents +V, and Black represents 0V.
 
+![12V_psu_wiring](images/12V_psu_wiring.png)
 
-This means that if you wire the +V side of your fan to an external power supply (5V for a 5V fan, 12V to a 12V fan, etc) and connect the -V side of your fan to a (-) pin on the SKR 1.3, you can switch the fan on and off. As mentioned above, this *only* will work if you tie the DC 0V of both power supplies together. Note, in the diagram below, only DC wires are shown. Red represents +V, and Black represents 0V. **SKR 1.3 Board Configuration**
+### Buck Converter Wiring (Optional)
+
+If you have low power accessories (fans, small LEDs, etc) that operate off of 5V or 12V, you can use a buck converter to drop 24V to the device voltage. Make sure that the buck converter you purchase can supply the current that your accessory requires.
+
+![buck_converter_wiring](images/buck_converter_wiring.png)
 
 ## Stepper Driver Installation
 
-- **Warning!** Always be sure to orient drivers correctly when installing. If you plug the drivers in backwards, they may permanently be damaged. Enable (EN) and Direction (DIR) pins should both be on the side closest to the microcontroller and the side OPPOSITE the plug that the stepper motor connects to. Another way of orienting the drivers is to make sure the red plastic shown below should align with the red pins on your SKR board. The orientation shown below on the left is correct for TMC 2209 drivers relative to the image above.
+- **Warning!** Always be sure to orient drivers correctly when installing. If you plug the drivers in backwards, they may permanently be damaged. Enable (EN) and Direction (DIR) pins *typically* are on the side opposite the stepper motor plugs, but check your controller board for specifics.
 - Place included heatsink on top of stepper driver copper pad and provide adequate cooling during operation or you may experience layer shifts or other undesirable behaviors. This is even more important with TMC 2208s as they have higher RDSon and generate more heat for the same stepper motor current.
-- **Note:** if you do not have BigTreeTech TMC2209s, the pinout is different. See link [here](https://www.anet3d-forum.de/viewtopic.php?f=82&t=4776)  
+- **Note:** if you do not have BigTreeTech TMC2209s, the pinout may be different. See link [here](https://www.anet3d-forum.de/viewtopic.php?f=82&t=4776)  
 
 **Wire Terminals**
 
@@ -52,11 +54,11 @@ For wiring the stepper motors, keep the same wire color sequence that your stepp
 
 ## Endstop Wiring
 
-There are two ways of wiring your endstops, one is NC (normally closed) and the other is NO (normally open). For normally closed configurations, the endstop switch allows current to flow through it when it is not triggered. For normally open configurations, the end stop switch only allows current to flow through it when it is triggered. 
+There are two ways of wiring your endstops: NC (normally closed) or NO (normally open). For normally closed configurations, the endstop switch allows current to flow through it when it is not triggered. For normally open configurations, the end stop switch only allows current to flow through it when it is triggered. 
 
 While both of these configurations will work fine in an ideal world, NC configurations are more robust because if a wire breaks or a terminal becomes disconnected, the printer will think that the end stop has triggered and the printer will stop movement before the toolhead crashes in to the frame or the bed. 
 
-Wiring mechanical end stop switches for NC operation is easy, as they generally have three pins exposed. With a multimeter, probe each combination of the three pins until you find a pair that has continuity (0 ohm resistance) when the switch is not triggered, but does not have continuity (infinite resistance) when the switch is triggered. The outer two pins are often the NC pins, but verify prior to installation.
+Wiring mechanical switches for NC operation is easy, as they generally have three pins exposed. With a multimeter, probe each combination of the three pins until you find a pair that has continuity (0 ohm resistance) when the switch is not triggered, but does not have continuity (infinite resistance) when the switch is triggered. The outer two pins are often the NC pins, but verify prior to installation.
 
 <img src="images/endstop_wiring.png" alt="endstop_wiring" style="zoom:50%;" />
 
