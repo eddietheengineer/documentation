@@ -1,10 +1,10 @@
-# Controller Module - Voron 2 - SKR 1.4
+# Controller Module - Voron 2 - SKR 1.3
 
 This module details how to configure and wire your SKR 1.3 boards for a Voron 2.4 printer.
 
-![skr13_jumper](/Users/joshualongenecker/Github/jdlongenecker/documentation/setup_guide/images/skr13_jumper.png)
+![skr13_jumper](https://github.com/jdlongenecker/documentation/blob/master/setup_guide/images/skr13_jumper.png?raw=true)
 
-![voron2_skr13_mcu_xye](/Users/joshualongenecker/Github/jdlongenecker/documentation/setup_guide/images/voron2_skr13_mcu_xye.png)
+![voron2_skr13_mcu_xye](https://github.com/jdlongenecker/documentation/blob/master/setup_guide/images/voron2_skr13_mcu_xye.png?raw=true)
 
-![voron2_skr13_mcu_z](/Users/joshualongenecker/Github/jdlongenecker/documentation/setup_guide/images/voron2_skr13_mcu_z.png)
+![voron2_skr13_mcu_z](https://github.com/jdlongenecker/documentation/blob/master/setup_guide/images/voron2_skr13_mcu_z.png?raw=true)
 
