@@ -48,7 +48,11 @@ Depending on your control board, you may need to use Dupont, JST-XH, and/or MX c
 
 Dupont:
 
+<p align="center">
+
 <img src="images/dupont_connector.jpg" width="400" alt="dupont_connector"  />
+
+</p>
 
 JST-XH Connector:
 
