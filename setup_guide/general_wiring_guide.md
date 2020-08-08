@@ -1,12 +1,10 @@
-**Power Supply Wiring**
+## General Wiring Guide
 
-
+This guide gives a high level overview of a few of the most common questions people have when wiring their printer. These notes should apply to all Voron printer builds, regardless of controller board used.
 
 **Safety Note**
 
 When wiring up your printer electronics, you will be working with high voltage wiring. Always double check to make sure that the printer is unplugged and any capacitors in your power supplies have discharged before touching any wire or terminal that may be live. 
-
-
 
 **Damage Risk**
 
@@ -18,7 +16,7 @@ When wiring up your printer electronics, you will be working with high voltage w
 
 The latest generation of Voron printers spec the use of two or more independent DC power supplies
 
-- 24V Power Supply for Controller board(s)
+- 24V DC Power Supply for Controller board(s)
 - 5V DC Power Supply for Raspberry Pi 
 - 12V (Optional) for any other devices (Fans, LEDs, etc)
 
