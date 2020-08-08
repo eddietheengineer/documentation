@@ -4,9 +4,7 @@ This module details how to configure and wire your SKR 1.4 boards for a Voron 2.
 
 
 
-![voron2_skr14_mcu_xye](../../images/voron2_skr14_mcu_xye-6905707.png)
-
-
+![voron2_skr14_mcu_xye](../../images/voron2_skr14_mcu_xye.png)
 
 ![voron2_skr14_mcu_z](../../images/voron2_skr14_mcu_z.png)
 
