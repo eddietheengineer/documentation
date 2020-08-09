@@ -26,6 +26,7 @@ FYSETC S6
 
 RAMPS
 
-SKR 1.3
+[SKR 1.3](https://github.com/jdlongenecker/documentation/blob/master/setup_guide/controller_modules/Voron_2/voron2_skr1.3.md)
 
-SKR 1.4
+[SKR 1.4](https://github.com/jdlongenecker/documentation/blob/master/setup_guide/controller_modules/Voron_2/voron2_skr1.4.md)
+

@@ -87,7 +87,7 @@ With the probe in the center of the bed, reconfirm that the probe is working cor
 
 ```QUERY_PROBE ```
 
-This should return “open”. When a metal object is close to the probe, QUERY_PROBE should return “triggered”. Slowly reduce your Z height and run QUERY_PROBE each time until QUERY_PROBE returns “triggered”—make sure the nozzle is not touching the print surface (and has clearance). If the signal is inverted, add a “!” In front of the pin definition (ie, pin: !z:P1.24). 
+This should return “open”. Bring a metal object close to the probe, QUERY_PROBE should return “TRIGGERED”. Slowly reduce your Z height and run QUERY_PROBE each time until QUERY_PROBE returns “TRIGGERED”—make sure the nozzle is not touching the print surface (and has clearance). If the signal is inverted, add a “!” in front of the pin definition (ie, pin: !z:P1.24). 
 
 ## Probe Accuracy
 
@@ -97,39 +97,24 @@ Example of unstable PROBE_ACCURACY (trending downward during warm up).
 
 ```
 Send: PROBE_ACCURACY
-
 Recv: // PROBE_ACCURACY at X:125.000 Y:125.000 Z:7.173 (samples=10 retract=2.000 speed=2.0
-
 Send: M105
-
 Recv: // probe at 125.000,125.000 is z=4.975000
-
 Recv: // probe at 125.000,125.000 is z=4.960000
-
 Recv: // probe at 125.000,125.000 is z=4.955000
-
 Recv: // probe at 125.000,125.000 is z=4.952500
-
 Recv: // probe at 125.000,125.000 is z=4.950000
-
 Recv: // probe at 125.000,125.000 is z=4.947500
-
 Recv: // probe at 125.000,125.000 is z=4.942500
-
 Recv: // probe at 125.000,125.000 is z=4.937500
-
 Recv: // probe at 125.000,125.000 is z=4.937500
-
 Recv: // probe at 125.000,125.000 is z=4.932500
-
 Recv: // probe accuracy results: maximum 4.975000, minimum 4.932500, range 0.042500, average 4.949000, median 4.948750, standard deviation 0.011948
 ```
 
-
-
 ## Quad Gantry Leveling (or Z Tilt)
 
-Run Quad_Gantry_Level or Z_Tilt (V2.2 or V1.6). If the script errors out due to an “out of bounds” error, disable your stepper motors and slowly move your gantry or bed by hand until it is approximately flat. Re home your printer (G28) and then rerun the sequence. You may have to run it more than once—make sure that the adjustment value for each stepper motor converges to 0. If it diverges, check to make sure you have your stepper motors wired to the correct stepper driver (check documentation). 
+Run Quad_Gantry_Level (Voron 2) or Z_Tilt (Voron 1). If the script errors out due to an “out of bounds” error, disable your stepper motors and slowly move your gantry or bed by hand until it is approximately flat. Rehome your printer (G28) and then rerun the sequence. Make sure that the adjustment value for each stepper motor converges to 0. If it diverges, check to make sure you have your stepper motors wired to the correct stepper driver (check documentation). 
 
 ## PID Tune Heated Bed
 
@@ -169,9 +154,13 @@ Home your printer:
 
 ```G28```
 
-Then run
+Then run:
 
-**Important**: This will be the first time that you have run a Quad Gantry Leveling at a high chamber temperature. To make sure that your probe has stabilized with the heated bed at 100C and the extruder at 240C, run PROBE_ACCURACY with the nozzle in the center of the bed. If the values are trending (increasing or decreasing) throughout the 10 probes, or the standard deviation is greater than 0.003mm, wait another 5 minutes and try again. Once the readings are stable, run QUAD_GANTRY_LEVEL. Make a note of how long it took for your probe readings to stabilize and remember this for the next time you start your print—you’ll typically want to wait 10-20 minutes from a cold printer to your first print to make sure temperatures stabilize.
+```QUAD_GANTRY_LEVEL``` (Voron 2)
+
+```Z_TILT_ADJUST``` (Voron 1)
+
+**Important**: This will be the first time that you have run a QGL or Z_TILT at an elevated chamber temperature. To make sure that your probe has stabilized with the heated bed at 100C and the extruder at 240C, run PROBE_ACCURACY with the nozzle in the center of the bed. If the values are trending (increasing or decreasing) throughout the 10 probes, or the standard deviation is greater than 0.003mm, wait another 5 minutes and try again. Once the readings are stable, run QUAD_GANTRY_LEVEL. Make a note of how long it took for your probe readings to stabilize and remember this for the next time you start your print—you’ll typically want to wait 10-20 minutes from a cold printer to your first print to make sure temperatures stabilize.
 
 ## Z Offset Adjustment
 
