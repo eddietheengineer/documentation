@@ -37,3 +37,15 @@ Note these instructions and macros are not complete, and may not work on your pr
 12. Note after you have run vibration_test, [input_shaper] will be disabled. Please ```RESTART``` Klipper before running another test!
 
 I hope this is useful for you!
+
+
+
+Initial Results (X):
+
+![x_vibration](data/images/x_vibration.png)
+
+
+
+Initial Results (Y):
+
+![y_vibration](data/images/y_vibration.png)
