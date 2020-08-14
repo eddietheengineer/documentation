@@ -34,7 +34,6 @@ Note these instructions and macros are not complete, and may not work on your pr
     7. B Vibration (without input shaper)
     8. A Vibration (without input shaper)
 11. Compare the corresponding data files with/without input shaper and plot the different responses.
-12. Note after you have run vibration_test, [input_shaper] will be disabled. Please ```RESTART``` Klipper before running another test!
 
 I hope this is useful for you!
 
