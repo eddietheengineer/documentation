@@ -30,4 +30,4 @@ RAMPS
 
 [SKR 1.4](https://github.com/jdlongenecker/documentation/blob/master/setup_guide/controller_modules/Voron_2/voron2_skr1.4.md)
 
-[FLYF407ZG](controller_modules/Voron_2/voron2_flyf407zg.md)
+[FLYF407ZG](controller_modules/Voron_2/FLYF407ZG/voron2_flyf407zg.md)
