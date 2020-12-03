@@ -12,6 +12,10 @@ Under each stepper driver, set two jumpers as shown on the following picture ([s
 
 Remove all other jumpers on the board.
 
+If you use XY Hall effect endstops you should close "Optional limit switch voltage" jumper in left position (see the following picture):
+
+![voron2_flyf407zg_endstop_switch.png](../../../images/voron2_flyf407zg_endstop_switch.png?raw=true)
+
 ## Wiring
 
 ![voron2_flyf407zg_mcu_1](../../../images/voron2_flyf407zg_mcu_1.png?raw=true)
